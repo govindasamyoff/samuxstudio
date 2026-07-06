@@ -210,11 +210,30 @@
     .logo-row {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 26px 42px;
       margin-top: 22px;
-      color: rgba(255, 255, 255, .42);
-      font-weight: 800;
-      font-size: 1rem;
+    }
+
+    .brand-logo {
+      display: block;
+      height: 24px;
+      width: auto;
+      opacity: .82;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .brand-logo--figma {
+      height: 26px;
+    }
+
+    .brand-logo--pardot {
+      height: 20px;
+    }
+
+    .brand-logo:hover {
+      opacity: 1;
+      transform: translateY(-1px);
     }
 
     .hero-art {
@@ -396,9 +415,23 @@
     }
 
     .badge b { font-size: 1.8rem; line-height: 1; }
+
+    .badge-logo {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .badge.figma .badge-logo { height: 36px; }
+    .badge.webflow .badge-logo,
+    .badge.hubspot .badge-logo,
+    .badge.wordpress .badge-logo { height: 30px; }
+    .badge.pardot .badge-logo { height: 16px; }
+
     .badge.figma { top: 52px; left: 190px; }
     .badge.code { top: 235px; left: 92px; min-height: 42px; min-width: 78px; grid-auto-flow: column; }
-    .badge.pardot { top: 10px; right: 166px; background: rgba(255,255,255,.94); color: #1d1c25; }
+    .badge.pardot { top: 10px; right: 166px; background: rgba(255,255,255,.94); }
     .badge.webflow { top: 118px; right: -10px; }
     .badge.hubspot { right: -2px; bottom: 178px; }
     .badge.wordpress { right: 72px; bottom: 20px; }
@@ -445,21 +478,11 @@
 
     .services-panel {
       position: relative;
-      overflow: hidden;
-      padding: clamp(34px, 5vw, 56px);
-      background:
-        linear-gradient(135deg, rgba(255, 105, 201, .12), transparent 28%),
-        radial-gradient(circle at 85% 16%, rgba(75, 182, 255, .18), transparent 20rem),
-        linear-gradient(145deg, rgba(19, 17, 34, .94), rgba(8, 11, 20, .94));
-    }
-
-    .services-panel::before {
-      content: "";
-      position: absolute;
-      inset: 20px;
-      pointer-events: none;
-      border: 1px solid rgba(255, 255, 255, .07);
-      border-radius: 12px;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: none;
+      box-shadow: none;
     }
 
     .services-heading {
@@ -477,12 +500,10 @@
 
     .services-intro {
       min-height: 100%;
-      padding: clamp(26px, 4vw, 36px);
-      border: 1px solid rgba(255, 255, 255, .1);
-      border-radius: 12px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .03)),
-        rgba(255, 255, 255, .035);
+      padding: clamp(26px, 4vw, 36px) 0;
+      border: none;
+      border-radius: 0;
+      background: none;
     }
 
     .service-kicker {
@@ -978,8 +999,6 @@
       .badge.webflow, .badge.hubspot { right: -42px; }
       .section { padding: 46px 0; }
       .section-panel { padding: 30px 18px 20px; border-radius: 12px; }
-      .services-panel { padding: 30px 18px; }
-      .services-panel::before { inset: 12px; }
       .services-heading { margin-bottom: 26px; }
       .service-grid { grid-template-columns: repeat(2, 1fr); }
       .project-strip { grid-template-columns: 1fr; gap: 16px; }
